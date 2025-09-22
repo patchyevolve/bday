@@ -1,0 +1,304 @@
+8a4e9c212dcc82231f41fcdedf637eba
+/* istanbul ignore next */
+function cov_1lxplemimj() {
+  var path = "D:\\pianoTiles\\birthday-piano-app\\src\\components\\GestureWrapper.js";
+  var hash = "9e4aa949291e9879d2c93bead4a1dd96482763bd";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "D:\\pianoTiles\\birthday-piano-app\\src\\components\\GestureWrapper.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 4,
+          column: 23
+        },
+        end: {
+          line: 45,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 12
+        },
+        end: {
+          line: 5,
+          column: 29
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 18
+        },
+        end: {
+          line: 6,
+          column: 64
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 24
+        },
+        end: {
+          line: 12,
+          column: 3
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 5
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 6
+        },
+        end: {
+          line: 10,
+          column: 21
+        }
+      },
+      "6": {
+        start: {
+          line: 14,
+          column: 2
+        },
+        end: {
+          line: 44,
+          column: 4
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 4,
+            column: 23
+          },
+          end: {
+            line: 4,
+            column: 24
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 55
+          },
+          end: {
+            line: 45,
+            column: 1
+          }
+        },
+        line: 4
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 24
+          },
+          end: {
+            line: 8,
+            column: 25
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 47
+          },
+          end: {
+            line: 12,
+            column: 3
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 9
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "9e4aa949291e9879d2c93bead4a1dd96482763bd"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1lxplemimj = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1lxplemimj();
+import React from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+/* istanbul ignore next */
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+cov_1lxplemimj().s[0]++;
+const GestureWrapper = ({
+  children,
+  onSwipeRight
+}) => {
+  /* istanbul ignore next */
+  cov_1lxplemimj().f[0]++;
+  const x =
+  /* istanbul ignore next */
+  (cov_1lxplemimj().s[1]++, useMotionValue(0));
+  const opacity =
+  /* istanbul ignore next */
+  (cov_1lxplemimj().s[2]++, useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]));
+  /* istanbul ignore next */
+  cov_1lxplemimj().s[3]++;
+  const handleDragEnd = (event, {
+    offset
+  }) => {
+    /* istanbul ignore next */
+    cov_1lxplemimj().f[1]++;
+    cov_1lxplemimj().s[4]++;
+    if (offset.x > 100) {
+      /* istanbul ignore next */
+      cov_1lxplemimj().b[0][0]++;
+      cov_1lxplemimj().s[5]++;
+      // Swipe right threshold
+      onSwipeRight();
+    } else
+    /* istanbul ignore next */
+    {
+      cov_1lxplemimj().b[0][1]++;
+    }
+  };
+  /* istanbul ignore next */
+  cov_1lxplemimj().s[6]++;
+  return /*#__PURE__*/ /* istanbul ignore next */_jsxs(
+  /* istanbul ignore next */
+  motion.div,
+  /* istanbul ignore next */
+  {
+    drag: "x",
+    dragConstraints: {
+      left: 0,
+      right: 0
+    },
+    dragElastic: 0.2,
+    onDragEnd: handleDragEnd,
+    style: {
+      x,
+      opacity
+    },
+    className: "relative",
+    children: [children, /*#__PURE__*/
+    /* istanbul ignore next */
+    _jsxs(
+    /* istanbul ignore next */
+    motion.div,
+    /* istanbul ignore next */
+    {
+      className: "fixed top-1/2 right-8 transform -translate-y-1/2 text-white/50 pointer-events-none",
+      style: {
+        opacity: useTransform(x, [0, 50], [0, 1])
+      },
+      children: [/*#__PURE__*/
+      /* istanbul ignore next */
+      _jsx(
+      /* istanbul ignore next */
+      "svg",
+      /* istanbul ignore next */
+      {
+        className: "w-12 h-12",
+        fill: "none",
+        stroke: "currentColor",
+        viewBox: "0 0 24 24",
+        children: /*#__PURE__*/
+        /* istanbul ignore next */
+        _jsx(
+        /* istanbul ignore next */
+        "path",
+        /* istanbul ignore next */
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+          d: "M9 5l7 7-7 7"
+        })
+      }), /*#__PURE__*/
+      /* istanbul ignore next */
+      _jsx(
+      /* istanbul ignore next */
+      "span",
+      /* istanbul ignore next */
+      {
+        className: "text-sm",
+        children: "Slideshow"
+      })]
+    })]
+  });
+};
+export default GestureWrapper;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMWx4cGxlbWltaiIsImFjdHVhbENvdmVyYWdlIiwiUmVhY3QiLCJtb3Rpb24iLCJ1c2VNb3Rpb25WYWx1ZSIsInVzZVRyYW5zZm9ybSIsImpzeCIsIl9qc3giLCJqc3hzIiwiX2pzeHMiLCJzIiwiR2VzdHVyZVdyYXBwZXIiLCJjaGlsZHJlbiIsIm9uU3dpcGVSaWdodCIsImYiLCJ4Iiwib3BhY2l0eSIsImhhbmRsZURyYWdFbmQiLCJldmVudCIsIm9mZnNldCIsImIiLCJkaXYiLCJkcmFnIiwiZHJhZ0NvbnN0cmFpbnRzIiwibGVmdCIsInJpZ2h0IiwiZHJhZ0VsYXN0aWMiLCJvbkRyYWdFbmQiLCJzdHlsZSIsImNsYXNzTmFtZSIsImZpbGwiLCJzdHJva2UiLCJ2aWV3Qm94Iiwic3Ryb2tlTGluZWNhcCIsInN0cm9rZUxpbmVqb2luIiwic3Ryb2tlV2lkdGgiLCJkIl0sInNvdXJjZXMiOlsiR2VzdHVyZVdyYXBwZXIuanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IHsgbW90aW9uLCB1c2VNb3Rpb25WYWx1ZSwgdXNlVHJhbnNmb3JtIH0gZnJvbSAnZnJhbWVyLW1vdGlvbic7XHJcblxyXG5jb25zdCBHZXN0dXJlV3JhcHBlciA9ICh7IGNoaWxkcmVuLCBvblN3aXBlUmlnaHQgfSkgPT4ge1xyXG4gIGNvbnN0IHggPSB1c2VNb3Rpb25WYWx1ZSgwKTtcclxuICBjb25zdCBvcGFjaXR5ID0gdXNlVHJhbnNmb3JtKHgsIFstMTAwLCAwLCAxMDBdLCBbMC41LCAxLCAwLjVdKTtcclxuICBcclxuICBjb25zdCBoYW5kbGVEcmFnRW5kID0gKGV2ZW50LCB7IG9mZnNldCB9KSA9PiB7XHJcbiAgICBpZiAob2Zmc2V0LnggPiAxMDApIHsgLy8gU3dpcGUgcmlnaHQgdGhyZXNob2xkXHJcbiAgICAgIG9uU3dpcGVSaWdodCgpO1xyXG4gICAgfVxyXG4gIH07XHJcblxyXG4gIHJldHVybiAoXHJcbiAgICA8bW90aW9uLmRpdlxyXG4gICAgICBkcmFnPVwieFwiXHJcbiAgICAgIGRyYWdDb25zdHJhaW50cz17eyBsZWZ0OiAwLCByaWdodDogMCB9fVxyXG4gICAgICBkcmFnRWxhc3RpYz17MC4yfVxyXG4gICAgICBvbkRyYWdFbmQ9e2hhbmRsZURyYWdFbmR9XHJcbiAgICAgIHN0eWxlPXt7IHgsIG9wYWNpdHkgfX1cclxuICAgICAgY2xhc3NOYW1lPVwicmVsYXRpdmVcIlxyXG4gICAgPlxyXG4gICAgICB7Y2hpbGRyZW59XHJcbiAgICAgIDxtb3Rpb24uZGl2XHJcbiAgICAgICAgY2xhc3NOYW1lPVwiZml4ZWQgdG9wLTEvMiByaWdodC04IHRyYW5zZm9ybSAtdHJhbnNsYXRlLXktMS8yIHRleHQtd2hpdGUvNTAgcG9pbnRlci1ldmVudHMtbm9uZVwiXHJcbiAgICAgICAgc3R5bGU9e3sgb3BhY2l0eTogdXNlVHJhbnNmb3JtKHgsIFswLCA1MF0sIFswLCAxXSkgfX1cclxuICAgICAgPlxyXG4gICAgICAgIDxzdmdcclxuICAgICAgICAgIGNsYXNzTmFtZT1cInctMTIgaC0xMlwiXHJcbiAgICAgICAgICBmaWxsPVwibm9uZVwiXHJcbiAgICAgICAgICBzdHJva2U9XCJjdXJyZW50Q29sb3JcIlxyXG4gICAgICAgICAgdmlld0JveD1cIjAgMCAyNCAyNFwiXHJcbiAgICAgICAgPlxyXG4gICAgICAgICAgPHBhdGhcclxuICAgICAgICAgICAgc3Ryb2tlTGluZWNhcD1cInJvdW5kXCJcclxuICAgICAgICAgICAgc3Ryb2tlTGluZWpvaW49XCJyb3VuZFwiXHJcbiAgICAgICAgICAgIHN0cm9rZVdpZHRoPXsyfVxyXG4gICAgICAgICAgICBkPVwiTTkgNWw3IDctNyA3XCJcclxuICAgICAgICAgIC8+XHJcbiAgICAgICAgPC9zdmc+XHJcbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbVwiPlNsaWRlc2hvdzwvc3Bhbj5cclxuICAgICAgPC9tb3Rpb24uZGl2PlxyXG4gICAgPC9tb3Rpb24uZGl2PlxyXG4gICk7XHJcbn07XHJcblxyXG5leHBvcnQgZGVmYXVsdCBHZXN0dXJlV3JhcHBlcjtcclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQWZaLE9BQU9FLEtBQUssTUFBTSxPQUFPO0FBQ3pCLFNBQVNDLE1BQU0sRUFBRUMsY0FBYyxFQUFFQyxZQUFZLFFBQVEsZUFBZTtBQUFDO0FBQUEsU0FBQUMsR0FBQSxJQUFBQyxJQUFBLEVBQUFDLElBQUEsSUFBQUMsS0FBQTtBQUFBVCxjQUFBLEdBQUFVLENBQUE7QUFFckUsTUFBTUMsY0FBYyxHQUFHQSxDQUFDO0VBQUVDLFFBQVE7RUFBRUM7QUFBYSxDQUFDLEtBQUs7RUFBQTtFQUFBYixjQUFBLEdBQUFjLENBQUE7RUFDckQsTUFBTUMsQ0FBQztFQUFBO0VBQUEsQ0FBQWYsY0FBQSxHQUFBVSxDQUFBLE9BQUdOLGNBQWMsQ0FBQyxDQUFDLENBQUM7RUFDM0IsTUFBTVksT0FBTztFQUFBO0VBQUEsQ0FBQWhCLGNBQUEsR0FBQVUsQ0FBQSxPQUFHTCxZQUFZLENBQUNVLENBQUMsRUFBRSxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsRUFBRSxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsRUFBRSxDQUFDLEVBQUUsR0FBRyxDQUFDLENBQUM7RUFBQztFQUFBZixjQUFBLEdBQUFVLENBQUE7RUFFL0QsTUFBTU8sYUFBYSxHQUFHQSxDQUFDQyxLQUFLLEVBQUU7SUFBRUM7RUFBTyxDQUFDLEtBQUs7SUFBQTtJQUFBbkIsY0FBQSxHQUFBYyxDQUFBO0lBQUFkLGNBQUEsR0FBQVUsQ0FBQTtJQUMzQyxJQUFJUyxNQUFNLENBQUNKLENBQUMsR0FBRyxHQUFHLEVBQUU7TUFBQTtNQUFBZixjQUFBLEdBQUFvQixDQUFBO01BQUFwQixjQUFBLEdBQUFVLENBQUE7TUFBRTtNQUNwQkcsWUFBWSxDQUFDLENBQUM7SUFDaEIsQ0FBQztJQUFBO0lBQUE7TUFBQWIsY0FBQSxHQUFBb0IsQ0FBQTtJQUFBO0VBQ0gsQ0FBQztFQUFDO0VBQUFwQixjQUFBLEdBQUFVLENBQUE7RUFFRixvQkFDRSwyQkFBQUQsS0FBQTtFQUFBO0VBQUNOLE1BQU0sQ0FBQ2tCLEdBQUc7RUFBQTtFQUFBO0lBQ1RDLElBQUksRUFBQyxHQUFHO0lBQ1JDLGVBQWUsRUFBRTtNQUFFQyxJQUFJLEVBQUUsQ0FBQztNQUFFQyxLQUFLLEVBQUU7SUFBRSxDQUFFO0lBQ3ZDQyxXQUFXLEVBQUUsR0FBSTtJQUNqQkMsU0FBUyxFQUFFVixhQUFjO0lBQ3pCVyxLQUFLLEVBQUU7TUFBRWIsQ0FBQztNQUFFQztJQUFRLENBQUU7SUFDdEJhLFNBQVMsRUFBQyxVQUFVO0lBQUFqQixRQUFBLEdBRW5CQSxRQUFRO0lBQ1Q7SUFBQUgsS0FBQTtJQUFBO0lBQUNOLE1BQU0sQ0FBQ2tCLEdBQUc7SUFBQTtJQUFBO01BQ1RRLFNBQVMsRUFBQyxvRkFBb0Y7TUFDOUZELEtBQUssRUFBRTtRQUFFWixPQUFPLEVBQUVYLFlBQVksQ0FBQ1UsQ0FBQyxFQUFFLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQztNQUFFLENBQUU7TUFBQUgsUUFBQTtNQUVyRDtNQUFBTCxJQUFBO01BQUE7TUFBQTtNQUFBO01BQUE7UUFDRXNCLFNBQVMsRUFBQyxXQUFXO1FBQ3JCQyxJQUFJLEVBQUMsTUFBTTtRQUNYQyxNQUFNLEVBQUMsY0FBYztRQUNyQkMsT0FBTyxFQUFDLFdBQVc7UUFBQXBCLFFBQUE7UUFFbkI7UUFBQUwsSUFBQTtRQUFBO1FBQUE7UUFBQTtRQUFBO1VBQ0UwQixhQUFhLEVBQUMsT0FBTztVQUNyQkMsY0FBYyxFQUFDLE9BQU87VUFDdEJDLFdBQVcsRUFBRSxDQUFFO1VBQ2ZDLENBQUMsRUFBQztRQUFjLENBQ2pCO01BQUMsQ0FDQyxDQUFDO01BQ047TUFBQTdCLElBQUE7TUFBQTtNQUFBO01BQUE7TUFBQTtRQUFNc0IsU0FBUyxFQUFDLFNBQVM7UUFBQWpCLFFBQUEsRUFBQztNQUFTLENBQU0sQ0FBQztJQUFBLENBQ2hDLENBQUM7RUFBQSxDQUNILENBQUM7QUFFakIsQ0FBQztBQUVELGVBQWVELGNBQWMiLCJpZ25vcmVMaXN0IjpbXX0=
