@@ -1,0 +1,353 @@
+/* Mobile Optimizations CSS */
+
+/* Mobile device specific styles */
+.mobile-device {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch-friendly button styles */
+.touch-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px; /* Minimum touch target size */
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.touch-button:active,
+.touch-button.pressed {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.touch-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.touch-button.touch-feedback:active {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Game tile touch optimizations */
+.game-tile {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  min-height: 60px;
+  min-width: 60px;
+}
+
+.game-tile:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Power-up touch optimizations */
+.power-up {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  min-height: 60px;
+  min-width: 60px;
+}
+
+.power-up:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+/* Responsive grid optimizations */
+.responsive-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Lazy loading image styles */
+.lazy-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.lazy-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image.loading {
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Mobile-specific game container adjustments */
+@media (max-width: 768px) {
+  .game-container {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    padding: 1rem;
+  }
+  
+  .game-area {
+    height: 400px;
+  }
+  
+  .game-tile {
+    font-size: 14px;
+    min-height: 50px;
+  }
+  
+  .power-up {
+    font-size: 20px;
+    min-height: 50px;
+  }
+}
+
+/* Touch gesture feedback */
+.touch-feedback {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-feedback::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.touch-feedback:active::before {
+  width: 100px;
+  height: 100px;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .touch-button,
+  .game-tile,
+  .power-up {
+    transition: none;
+  }
+  
+  .lazy-image {
+    transition: none;
+  }
+  
+  .touch-feedback::before {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .touch-button {
+    border: 2px solid currentColor;
+  }
+  
+  .game-tile {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .power-up {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .lazy-image-placeholder {
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    color: #ccc;
+  }
+}
+
+/* Landscape orientation optimizations for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .game-container {
+    height: 100vh;
+    max-height: 400px;
+  }
+  
+  .game-area {
+    height: 300px;
+  }
+  
+  .touch-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 0.5rem;
+    height: 450px;
+  }
+  
+  .game-area {
+    height: 350px;
+  }
+  
+  .game-tile {
+    font-size: 12px;
+    min-height: 45px;
+  }
+  
+  .power-up {
+    font-size: 18px;
+    min-height: 45px;
+  }
+  
+  .touch-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-height: 40px;
+  }
+}
+
+/* Performance monitoring styles */
+.performance-monitor {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.performance-metrics .metric {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.performance-metrics .metric-label {
+  color: #ccc;
+  font-weight: normal;
+}
+
+.performance-metrics .metric-value {
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessibility improvements */
+.touch-button:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+.game-tile:focus,
+.power-up:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 1px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
