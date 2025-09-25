@@ -4,18 +4,13 @@ import { Heart, Music, Lock, Clock } from 'lucide-react';
 import FloatingHeartsBackground from './components/FloatingHeartsBackground';
 import KukuMessage from './components/KukuMessage';
 import { loadMediaFiles } from './utils/mediaLoader';
-import MobileOptimizations, { TouchButton, ResponsiveGrid, LazyImage } from './components/MobileOptimizations';
+import MobileOptimizations, { TouchButton } from './components/MobileOptimizations';
 import PerformanceMonitor, { usePerformanceOptimization, useFrameRateLimit } from './components/PerformanceMonitor';
-import { 
-  isMobile, 
-  isTouchDevice, 
-  getOptimalFrameRate, 
-  getOptimalSpawnRate, 
-  getOptimalTileSpeed,
-  getAdaptiveQualitySettings,
-  AudioManager,
-  throttle,
-  debounce
+import {  
+  getOptimalFrameRate,  
+  getOptimalSpawnRate,  
+  getOptimalTileSpeed, 
+  AudioManager 
 } from './utils/performanceOptimizations';
 import './styles/mobile-optimizations.css';
 
@@ -52,8 +47,8 @@ const BirthdayPianoSurprise = () => {
   const [isMuted, setIsMuted] = useState(false);
 
   // Performance optimization hooks
-  const { qualitySettings, isLowPerformance } = usePerformanceOptimization();
-  const { limitFrameRate, cancelFrameRateLimit } = useFrameRateLimit(getOptimalFrameRate());
+  const { qualitySettings} = usePerformanceOptimization();
+  const { cancelFrameRateLimit } = useFrameRateLimit(getOptimalFrameRate());
   
   // Audio manager for better memory management
   const audioManagerRef = useRef(new AudioManager());
@@ -107,7 +102,6 @@ const BirthdayPianoSurprise = () => {
   
   // Audio context and oscillators ref
   const audioContextRef = useRef(null);
-  const activeOscillatorsRef = useRef(new Set());
   const gameLoopRef = useRef(null);
   const lastTileSpawnRef = useRef(0);
   const backgroundMusicRef = useRef(null);
@@ -270,6 +264,8 @@ const BirthdayPianoSurprise = () => {
           return updated;
         });
       }, 100);
+      
+      // ✅ ADD THIS LINE - this makes the 'interval' variable actually used:
       return () => clearInterval(interval);
     }
   }, [gameStarted, gameOver, gameCompleted]);
@@ -535,8 +531,12 @@ const BirthdayPianoSurprise = () => {
 
   // Cleanup audio manager on unmount
   useEffect(() => {
+    const currentAudioManager = audioManagerRef.current;
+    
     return () => {
-      audioManagerRef.current?.cleanup();
+      if (currentAudioManager) {
+        currentAudioManager.cleanup();
+      }
     };
   }, []);
 

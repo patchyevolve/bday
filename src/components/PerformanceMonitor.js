@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { PerformanceMetrics, monitorMemoryUsage, getAdaptiveQualitySettings } from '../utils/performanceOptimizations';
+import {monitorMemoryUsage, getAdaptiveQualitySettings } from '../utils/performanceOptimizations';
 
 /**
  * Performance monitoring component
@@ -13,7 +13,6 @@ const PerformanceMonitor = ({ enabled = process.env.NODE_ENV === 'development' }
     gameLoopTime: 0
   });
   const [isVisible, setIsVisible] = useState(false);
-  const performanceRef = useRef(new PerformanceMetrics());
   const frameCountRef = useRef(0);
   const lastTimeRef = useRef(performance.now());
 

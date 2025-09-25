@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback } from 'react';
-import { isMobile, isTouchDevice, getOptimalFrameRate, getAdaptiveQualitySettings } from '../utils/performanceOptimizations';
+import { isMobile, isTouchDevice, getOptimalFrameRate } from '../utils/performanceOptimizations';
 
 /**
  * Mobile-specific optimizations component
